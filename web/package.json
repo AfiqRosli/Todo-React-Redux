@@ -24,6 +24,7 @@
     "test": "react-scripts --openssl-legacy-provider test",
     "eject": "react-scripts --openssl-legacy-provider eject"
   },
+  "homepage": "https://afiqrosli.github.io/Todo-React-Redux",
   "eslintConfig": {
     "extends": [
       "react-app",

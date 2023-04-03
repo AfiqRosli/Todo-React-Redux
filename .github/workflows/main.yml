@@ -5,7 +5,7 @@ permissions:
 
 env:
   AZURE_WEBAPP_NAME: todo-react # set this to your application's name
-  AZURE_WEBAPP_PACKAGE_PATH: "./server/build" # set this to the path to your web app project, defaults to the repository root
+  AZURE_WEBAPP_PACKAGE_PATH: "./server/bin" # set this to the path to your web app project, defaults to the repository root
   NODE_VERSION: "18.x" # set this to the node version to use
 
 jobs:
@@ -43,7 +43,6 @@ jobs:
           # deploy to Azure Web App.
           cd server
           npm ci
-          npm run build
       - name: "Deploy to Azure WebApp"
         uses: azure/webapps-deploy@v2
         with:

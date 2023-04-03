@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon src/app.js",
     "build": "swc ./src --out-dir build",
-    "start": "node app.js",
+    "start": "node wwwroot",
     "preview": "nodemon build/app.js"
   },
   "author": "",

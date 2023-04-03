@@ -4,10 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/app.js",
-    "start": "nodemon build/app.js",
+    "dev": "nodemon src/index.js",
     "build": "swc ./src --out-dir build",
-    "preview": "nodemon build/app.js"
+    "preview": "nodemon build/index.js"
   },
   "author": "",
   "license": "ISC",

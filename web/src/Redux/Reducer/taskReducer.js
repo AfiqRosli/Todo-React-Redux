@@ -1,23 +1,15 @@
 const intialState = [
   {
     id: 0,
-    name: "Vikas",
-    age: 25,
-    email: "vk@gmail.com",
-    radio: "male",
-    dropDown: "Sports",
-    taskName: "Testing",
+    name: "John",
+    taskName: "Learning CI/CD",
     isChecked: "Active",
   },
 
   {
     id: 1,
-    name: "Madhav",
-    age: 26,
-    email: "md@gmail.com",
-    radio: "male",
-    dropDown: "Sports",
-    taskName: "Dev",
+    name: "Jane",
+    taskName: "Writing Documentation",
     isChecked: "Active",
   },
 ];

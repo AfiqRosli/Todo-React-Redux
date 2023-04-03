@@ -7,12 +7,8 @@ import { useHistory } from "react-router-dom";
 
 function UpdateTask() {
   const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [age, setAge] = useState("");
-  const [radio, setRadio] = useState("");
   const [isChecked, setIsChecked] = useState(false);
   const [taskName, setTaskName] = useState("");
-  const [dropDown, setDropdown] = useState("Sports");
 
   const { id } = useParams();
   const tasks = useSelector((state) => state);
@@ -23,37 +19,18 @@ function UpdateTask() {
   useEffect(() => {
     if (currentTask) {
       setName(currentTask.name);
-      setRadio(currentTask.radio);
-      setEmail(currentTask.email);
-      setAge(currentTask.age);
+      setTaskName(currentTask.taskName);
     }
   }, [currentTask]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const checkEmail = tasks.find(
-      (task) => task.id !== parseInt(id) && task.email === email
-    );
-    const checkName = tasks.find(
-      (task) => task.id !== parseInt(id) && task.name === name && name
-    );
-    if (!name || !radio || !age || !name) {
-      return toast.warning("Please add all details!");
-    }
-    if (checkName) {
-      return toast.error("This Name is Already Exists");
-    }
-
     const data = {
       id: parseInt(id),
       name,
-      radio,
-      email,
-      age,
-      isChecked,
+      isChecked: isChecked ? "Active" : "Inactive",
       taskName,
-      dropDown,
     };
     dispatch({ type: "UPDATE_TASK", payload: data });
     toast.success("Task Updated Successfully");
@@ -75,58 +52,6 @@ function UpdateTask() {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                   />
-                </div>
-
-                <div className="form-group">
-                  <label className="form-check-label">Male</label>
-                  <input
-                    type="radio"
-                    placeholder="gender"
-                    className="form-check-input"
-                    checked={radio === "male"}
-                    value="male"
-                    onChange={(e) => setRadio(e.target.value)}
-                  />
-                  <label className="form-check-label">Female</label>
-                  <input
-                    type="radio"
-                    placeholder="Name"
-                    className="form-check-input"
-                    checked={radio === "female"}
-                    value="female"
-                    onChange={(e) => setRadio(e.target.value)}
-                  />
-                </div>
-                <div className="form-group">
-                  <input
-                    type="email"
-                    placeholder="Email"
-                    className="form-control"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
-                </div>
-                <div className="form-group">
-                  <input
-                    type="number"
-                    placeholder="Age"
-                    className="form-control"
-                    min={18}
-                    max={55}
-                    value={age}
-                    onChange={(e) => setAge(e.target.value)}
-                  />
-                </div>
-                <div className="form-group">
-                  <lable>Hobby : </lable>
-                  <select
-                    value={dropDown}
-                    onChange={(e) => setDropdown(e.target.value)}
-                  >
-                    <option value="sports">Sports</option>
-                    <option value="reading">Reading</option>
-                    <option value="music">Music</option>
-                  </select>
                 </div>
 
                 <div className="form-group">

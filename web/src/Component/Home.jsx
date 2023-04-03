@@ -26,30 +26,23 @@ function Home() {
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">User Name</th>
-                <th scope="col">Email</th>
-                <th scope="col">Age</th>
-                <th scope="col">Gender</th>
-                <th scope="col">Hobby </th>
                 <th scope="col">Task Name </th>
                 <th scope="col">Status</th>
                 <th scope="col">Action</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className="text-center">
               {tasks.map((task, id) => (
                 <tr key={id}>
                   <td>{id + 1}</td>
                   <td>{task.name}</td>
-                  <td>{task.email}</td>
-                  <td>{task.age}</td>
-                  <td>{task.radio}</td>
-                  <td>{task.dropDown}</td>
                   <td>{task.taskName}</td>
                   <td>{task.isChecked}</td>
                   <td>
                     <Link
                       to={`/update/${task.id}`}
                       className="btn btn-small btn-primary"
+                      style={{ marginRight: "10px" }}
                     >
                       Update
                     </Link>

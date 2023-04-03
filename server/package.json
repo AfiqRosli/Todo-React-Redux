@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/app.js",
+    "start": "nodemon build/app.js",
     "build": "swc ./src --out-dir build",
     "preview": "nodemon build/app.js"
   },
